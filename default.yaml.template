@@ -1,0 +1,4 @@
+ami_name: 'Your AMI name'
+instance_type: 'm1.micro'
+security_group_ids: 'your-security-group-id'
+amount: 1
