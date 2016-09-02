@@ -48,11 +48,13 @@ end
 
 def find_instances_with_name(ec2, name)
   puts "Searching for instance with name '#{name}' ..."
-  ec2.describe_instances(
+  reservation = ec2.describe_instances(
     filters:[{
       name: 'tag:Name',
       values: [name]
-  }]).reservations[0].instances
+  }]).reservations[0]
+
+  reservation.nil? ? Array.new : reservation.instances
 end
 
 def add_nametag(ec2, id, name)
